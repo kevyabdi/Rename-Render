@@ -21,7 +21,7 @@ FORCE_SUB = os.environ.get("FORCE_SUB", "fpflims")
 
 DB_NAME = os.environ.get("DB_NAME", "kevyabdi20")     
 
-DB_URL = os.environ.get("DB_URL", "mongodb+srv://kevyabdi20:<kevyabdi20>@kevyabdi.mymiztp.mongodb.net/?retryWrites=true&w=majority&appName=kevyabdi")
+DB_URL = os.environ.get("DB_URL", "mongodb+srv://kevyabdi20:kevyabdi20@kevyabdi.mymiztp.mongodb.net/?retryWrites=true&w=majority&appName=kevyabdi")
  
 FLOOD = int(os.environ.get("FLOOD", "10"))
 
