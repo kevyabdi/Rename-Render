@@ -15,6 +15,6 @@ DB_NAME = os.environ.get("DB_NAME", "kevyabdi20")
 DB_URL = os.environ.get("DB_URL", "mongodb+srv://kevyabdi20:<kevyabdi20>@kevyabdi.mymiztp.mongodb.net/?retryWrites=true&w=majority&appName=kevyabdi")
 
 FLOOD = int(os.environ.get("FLOOD", "10"))
-START_PIC = os.environ.get("START_PIC", "")
+START_PIC = os.environ.get("START_PIC", "https://graph.org/file/66930191ac0b30f536f69.jpg")
 ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '').split()]
 PORT = os.environ.get("PORT", "8080")
