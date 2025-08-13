@@ -1,3 +1,4 @@
+
 # Don't Remove Credit @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
@@ -18,7 +19,7 @@ class mr(object):
 ├📕 LIBRARY : <a href=https://github.com/pyrogram>Pyrogram</a>
 ├✏️ LANGUAGE : <a href=https://www.python.org>Python 3</a>
 ├💾 DATABASE : <a href=https://cloud.mongodb.com>MongoDB</a>
-├🌀 𝚂𝙴𝚁𝚅𝙴𝚁 : <a href=https://www.oracle.com/cloud/>Render</a>
+├🌀 𝚂𝙴𝚁𝚅𝙴𝚁 : <a href=https://render.com/>Render</a>
 ├📊 BUILD-STATUS : Python v3.10.5              
 ╰───────────────⍟
                                 """
@@ -35,9 +36,26 @@ class mr(object):
 •> /del_caption - delete custom caption
 
 Example:- /set_caption 📕 File Name: {filename}
-💾 Size: {filesize}
-⏰ Duration: {duration}
 
-✏️ <b><u>HOW TO RENAME A FILE</u></b>
-•> send any file and click rename option and type new file name and \n send select [ document, video, audio ]👈 choice this.
-"""
+Available Variables:
+• {filename} - original filename
+• {filesize} - file size
+• {duration} - video duration
+
+🎯 <b><u>HOW TO RENAME FILES</u></b>
+•> Send any file (video/document)
+•> Enter new filename when prompted
+•> Bot will rename and send the file
+
+⚡ <b><u>OTHER COMMANDS</u></b>
+•> /users - view total users (admin only)
+•> /broadcast - broadcast message (admin only)"""
+
+    DEV_TXT = """
+👨‍💻 <b><u>DEVELOPER INFO</u></b>
+
+• Developer: @VJ_Botz
+• Language: Python 3
+• Framework: Pyrogram
+• Updates: @VJ_Bots
+• Support: @VJ_Bot_Disscussion"""
