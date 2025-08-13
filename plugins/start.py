@@ -2,16 +2,14 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-from asyncio import sleep
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
-from pyrogram.errors import FloodWait
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from helper.database import db
+from helper.txt import mr
+from config import START_PIC, ADMIN
+from asyncio import sleep
 import humanize
 import random
-from helper.txt import mr
-from helper.database import db
-from config import START_PIC, FLOOD, ADMIN 
-
 
 @Client.on_message(filters.private & filters.command(["start"]))
 async def start(client, message):
@@ -28,7 +26,7 @@ async def start(client, message):
         InlineKeyboardButton(' About', callback_data='about'),
         InlineKeyboardButton(' Help', callback_data='help')
         ],[
-        InlineKeyboardButton(" Join Our Movie Channel !", url='https://t.me/VJ_Bots')
+        InlineKeyboardButton(" Join Our Movie Channel !", url='https://t.me/vj_bots')
         ],[
         InlineKeyboardButton("❤️ Subscribe YT ❤️", url='https://www.youtube.com/@Tech_VJ')
         ]
@@ -37,14 +35,13 @@ async def start(client, message):
         await message.reply_photo(START_PIC, caption=txt, reply_markup=button)       
     else:
         await message.reply_text(text=txt, reply_markup=button, disable_web_page_preview=True)
-    
 
 @Client.on_message(filters.command('logs') & filters.user(ADMIN))
 async def log_file(client, message):
     try:
         await message.reply_document('TelegramBot.log')
     except Exception as e:
-        await message.reply_text(f"Error:\n`{e}`")
+        await message.reply_text(f"Error: {str(e)}")
 
 @Client.on_message(filters.private & (filters.document | filters.audio | filters.video))
 async def rename_start(client, message):
@@ -57,13 +54,7 @@ async def rename_start(client, message):
         buttons = [[ InlineKeyboardButton("📝 𝚂𝚃𝙰𝚁𝚃 𝚁𝙴𝙽𝙰𝙼𝙴 📝", callback_data="rename") ],
                    [ InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲𝙴𝙻 ✖️", callback_data="cancel") ]]
         await message.reply_text(text=text, reply_to_message_id=message.id, reply_markup=InlineKeyboardMarkup(buttons))
-        await sleep(FLOOD)
-    except FloodWait as e:
-        await sleep(e.value)
-        text = f"""**__What do you want me to do with this file.?__**\n\n**File Name** :- `{filename}`\n\n**File Size** :- `{filesize}`"""
-        buttons = [[ InlineKeyboardButton("📝 𝚂𝚃𝙰𝚁𝚃 𝚁𝙴𝙽𝙰𝙼𝙴 📝", callback_data="rename") ],
-                   [ InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲𝙴𝙻 ✖️", callback_data="cancel") ]]
-        await message.reply_text(text=text, reply_to_message_id=message.id, reply_markup=InlineKeyboardMarkup(buttons))
+        await sleep(4)
     except:
         pass
 
@@ -73,7 +64,7 @@ async def cb_handler(client, query: CallbackQuery):
     if data == "start":
         await query.message.edit_text(
             text=f"""👋 Hello Developer {query.from_user.mention} \n\nI am an Advance file Renamer and file Converter BOT with permanent and custom thumbnail support.\n\nSend me any video or document !""",
-            reply_markup=InlineKeyboardMarkup( [[
+            reply_markup=InlineKeyboardMarkup([[
         InlineKeyboardButton(" Developer ", url='https://t.me/anjel_neha')
         ],[
         InlineKeyboardButton(' Updates', url='https://t.me/VJ_Bots'),
@@ -86,29 +77,28 @@ async def cb_handler(client, query: CallbackQuery):
         ],[
         InlineKeyboardButton("❤️ Subscribe YT ❤️", url='https://www.youtube.com/@Tech_VJ')
         ]
-        ]
-                )
-            )
+        ])
+        )
     elif data == "help":
         await query.message.edit_text(
             text=mr.HELP_TXT,
-            reply_markup=InlineKeyboardMarkup( [[
+            reply_markup=InlineKeyboardMarkup([[
                InlineKeyboardButton(" Join our Movie Channel ", url="https://t.me/vj_bots")
                ],[
-               InlineKeyboardButton(" 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
-               InlineKeyboardButton(" 𝙱𝙰𝙲𝙺", callback_data = "start")
+               InlineKeyboardButton(" 𝙲𝙻𝙾𝚂𝙴", callback_data="close"),
+               InlineKeyboardButton(" 𝙱𝙰𝙲𝙺", callback_data="start")
                ]]
             )
         )
     elif data == "about":
         await query.message.edit_text(
             text=mr.ABOUT_TXT.format(client.mention),
-            disable_web_page_preview = True,
-            reply_markup=InlineKeyboardMarkup( [[
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton(" Join our Movie Channel ", url="https://t.me/vj_bots")
                ],[
-               InlineKeyboardButton(" 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
-               InlineKeyboardButton(" 𝙱𝙰𝙲𝙺", callback_data = "start")
+               InlineKeyboardButton(" 𝙲𝙻𝙾𝚂𝙴", callback_data="close"),
+               InlineKeyboardButton(" 𝙱𝙰𝙲𝙺", callback_data="start")
                ]]
             )
         )
@@ -118,8 +108,8 @@ async def cb_handler(client, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup( [[
                 InlineKeyboardButton(" Join our Movie Channel ", url="https://t.me/vj_bots")
                ],[
-               InlineKeyboardButton(" 𝙲𝙻𝙾𝚂𝙴", callback_data = "close"),
-               InlineKeyboardButton(" 𝙱𝙰𝙲𝙺", callback_data = "start")
+               InlineKeyboardButton(" 𝙲𝙻𝙾𝚂𝙴", callback_data="close"),
+               InlineKeyboardButton(" 𝙱𝙰𝙲𝙺", callback_data="start")
                ]]
             )
         )
@@ -129,8 +119,3 @@ async def cb_handler(client, query: CallbackQuery):
             await query.message.reply_to_message.delete()
         except:
             await query.message.delete()
-
-
-
-
-
